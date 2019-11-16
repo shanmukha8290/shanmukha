@@ -1,0 +1,30 @@
+import random
+
+try:
+    numberOfGames = int(input("Enter the number of games you want to play : "))
+except:
+    print("Please Select a Number")
+
+    
+guessNumber = 0
+guess = 0
+for i in range(0,numberOfGames):
+    count = 1
+    guessNumber = random.randint(0,25)
+    while guess != guessNumber:
+        try:
+            guess = int(input("Select a number from 0-25: "))
+        except:
+            print("Please provide a number")
+            continue
+            
+        if guess > guessNumber:
+            print("Your Guess is high")
+            count = count+1
+        elif guess < guessNumber:
+            print("Your guess is low")
+            count = count + 1
+        else:
+            print("Hurray!!!! Your Guess is right and it took %s attempts" % count)
+
+    numberOfGames = numberOfGames - 1
